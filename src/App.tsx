@@ -1,43 +1,27 @@
-import Message from "./component/Message.tsx";
-import ListGroup from "./component/ListGroup/ListGroup.tsx";
-import Alert from "./component/Alert.tsx";
-import Button from "./component/Button/Button.tsx";
-import { useState } from "react";
-import Like from "./component/ListGroup/Like.tsx";
+import { Grid, GridItem, Show, Box } from "@chakra-ui/react";
+import NavBar from "./components/NavBar";
+import GameList from "./components/GameList";
 function App() {
-  const [alertVisible, setAlertVisibility] = useState(false);
-  const items = ["apple", "banana", "car", "dog"];
-  const handSelectItem = (item: string) => {
-    console.log(item);
-  };
   return (
-    <div>
-      <Message></Message>
-      <ListGroup
-        items={items}
-        heading="items"
-        onSelectItem={handSelectItem}
-      ></ListGroup>
-      <ListGroup
-        items={items}
-        heading="items"
-        onSelectItem={handSelectItem}
-      ></ListGroup>
-      {/* <div>
-        <Alert>
-          Children<span>props</span>
-        </Alert>
-      </div> */}
-      <div>
-        {alertVisible && (
-          <Alert onClose={() => setAlertVisibility(false)}>The alert</Alert>
-        )}
-        <Button onClick={() => setAlertVisibility(true)}>The bottom</Button>
-      </div>
-      <div>
-        <Like onClick={() => console.log("clicked")}></Like>
-      </div>
-    </div>
+    <Box minH="100vh" bg="bg" color="fg">
+      <Grid
+        templateAreas={{
+          base: '"nav" "main"',
+          lg: '"nav nav" "aside main"',
+        }}
+      >
+        <GridItem area="nav">
+          <NavBar></NavBar>
+        </GridItem>
+
+        <GridItem area="aside" p={4} display={{ base: "none", lg: "block" }}>
+          Aside
+        </GridItem>
+        <GridItem area="main" p={4}>
+          <GameList />
+        </GridItem>
+      </Grid>
+    </Box>
   );
 }
 export default App;
