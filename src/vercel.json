@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/ftg/:path*",
+      "destination": "https://www.freetogame.com/:path*"
+    }
+  ]
+}

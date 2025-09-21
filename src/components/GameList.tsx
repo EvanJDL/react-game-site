@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import fetchAllGames from "../services/game-service";
 import {
   CardRoot,
   CardBody,
   Image,
   Heading,
-  Box,
   SimpleGrid,
 } from "@chakra-ui/react";
 
