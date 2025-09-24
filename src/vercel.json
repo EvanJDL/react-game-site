@@ -1,8 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/ftg/:path*",
-      "destination": "https://www.freetogame.com/:path*"
+      "source": "/api/:path*",
+      "destination": "https://www.freetogame.com/api/:path*"
     }
   ]
 }

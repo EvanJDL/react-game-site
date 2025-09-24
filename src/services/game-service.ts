@@ -1,11 +1,8 @@
-import apiClient from "./api-client";
+import axios from "axios";
 
-async function fetchAllGames() {
-  const res = await apiClient.get("/games", {
+export default async function fetchAllGames() {
+  const res = await axios.get("/api/games", {
     params: { platform: "pc" },
   });
-  console.log(res.data);
   return res.data;
 }
-
-export default fetchAllGames;
